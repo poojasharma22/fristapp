@@ -30,6 +30,7 @@ class AddNewsAdapter (val  list:List<Article>,val  addNewsFragment: AddNewsFragm
             Glide.with(addNewsFragment)
                 .load(list.get(position).urlToImage).into(holder.ivNews)
         }else{
+
             Glide.with(addNewsFragment)
                 .load(R.drawable.img_girlres_background).into(holder.ivNews)
         }
