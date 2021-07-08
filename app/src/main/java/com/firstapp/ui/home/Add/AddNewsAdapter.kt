@@ -22,8 +22,18 @@ class AddNewsAdapter (val  list:List<Article>,val  addNewsFragment: AddNewsFragm
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvNewsName.text =list.get(position).title
         holder.tvtime.text =list.get(position).publishedAt
-        Glide.with(addNewsFragment)
-            .load(list.get(position).urlToImage).into(holder.ivNews);
+
+        /**
+         * We can also use glide's placeholder
+         */
+        if(list.get(position).urlToImage.isNotEmpty()){
+            Glide.with(addNewsFragment)
+                .load(list.get(position).urlToImage).into(holder.ivNews)
+        }else{
+            Glide.with(addNewsFragment)
+                .load(R.drawable.img_girlres_background).into(holder.ivNews)
+        }
+
     }
 
     override fun getItemCount(): Int {
